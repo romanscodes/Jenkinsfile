@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'python -m py_compile sources/add2vals.py sources/calc.py'
+                sh 'echo "sample here"'
             }
         }
         stage('Test') {
@@ -18,12 +18,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
-            }
-            post {
-                always {
-                    junit 'test-reports/results.xml'
-                }
+                sh 'echo "sample here"'
             }
         }
         stage('Deliver') {
@@ -33,13 +28,7 @@ pipeline {
                 }
             }
             steps {
-         sh '/root/.pyenv/shims/pyinstaller -F sources/add2vals.py'
-                
-            }
-            post {
-                success {
-                    archiveArtifacts 'dist/add2vals'
-                }
+            sh 'echo "sample here"'                
             }
         }
     }
